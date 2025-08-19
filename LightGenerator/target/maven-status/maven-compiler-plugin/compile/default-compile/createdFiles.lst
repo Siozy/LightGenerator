@@ -1,0 +1,12 @@
+siozy\start\lightgenerator\commands\ReloadSubCommand.class
+siozy\start\lightgenerator\commands\TakeSubCommand.class
+siozy\start\lightgenerator\LightGenerator.class
+siozy\start\lightgenerator\utils\Particles.class
+siozy\start\lightgenerator\Config\Config.class
+siozy\start\lightgenerator\utils\HologramManager.class
+siozy\start\lightgenerator\Config\DataConfig.class
+siozy\start\lightgenerator\GeneratorRunnable\GeneratorRunnable.class
+siozy\start\lightgenerator\commands\GiveSubCommand.class
+siozy\start\lightgenerator\GeneratorRunnable\RunnableManager.class
+siozy\start\lightgenerator\generatorItem\GeneratorItem.class
+siozy\start\lightgenerator\handlers\GeneratorHandlers.class

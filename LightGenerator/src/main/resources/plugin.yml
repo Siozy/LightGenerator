@@ -1,0 +1,15 @@
+name: LightGenerator
+version: '${project.version}'
+main: siozy.start.lightgenerator.LightGenerator
+api-version: '1.16'
+commands:
+  lightgenerator:
+    aliases:
+      - generator
+      - lg
+      - lightg
+      - lgenerator
+depend:
+  - LunaSpring
+  - SateJewels
+  - DecentHolograms

@@ -1,0 +1,44 @@
+settings:
+  hologram:
+    height: 10.0
+    lines:
+      - ""
+      - ""
+  particles:
+    enabled: true
+    count: 5
+    type: REDSTONE
+    rgb: 191191
+    additive_height: 0.5
+    additive_radius: 1
+items:
+  level1:
+    material: GRASS_BLOCK
+    displayName: "1 лвл"
+    lore:
+      - ""
+      - ""
+      - ""
+    settings:
+      minOnlinePlayers: 10 # игроков на сервере
+      lifeTime: 120 # Время жизни блока
+      executeCooldown: 10 # Задержка выдачи jewels и отправки сообщения
+      executeRadius: 10 # растояние в блоках
+      giveJewels: 100 # сколько jewels выдаём
+      divideJewels: true # делить колво на столько, сколько игроков в радиусе?
+messages:
+  reloaded: "Перезагружен"
+  successGive: "&fВы выдали игроку &a[player] [item] &7(&a[amount]&7)"
+  onGet: "&f- Вы получили [item] &7(&a[amount]&7)"
+  playerPlacedGenerator:
+    - ""
+    - "      &x&9&1&5&4&F&4К&x&8&F&5&9&F&5о&x&8&D&5&E&F&5с&x&8&A&6&2&F&6м&x&8&8&6&7&F&6и&x&8&6&6&C&F&7ч&x&8&4&7&1&F&7е&x&8&1&7&6&F&8с&x&7&F&7&A&F&8к&x&7&D&7&F&F&9и&x&7&B&8&4&F&Aй &x&7&6&8&E&F&Bг&x&7&4&9&2&F&Bе&x&7&2&9&7&F&Cн&x&6&F&9&C&F&Cе&x&6&D&A&1&F&Dр&x&6&B&A&6&F&Dа&x&6&9&A&A&F&Eт&x&6&6&A&F&F&Eо&x&6&4&B&4&F&Fр      "
+    - "  &fИгрок &a[whoPlaced] &fзаспавнил [display]  "
+    - "  &fНа координатах &a[x] [y] [z]"
+    - ""
+  notEnoughPlayers: "нет игроков"
+  onGetJewels: "Вы получили &a[amount] &fЛайтиков от [display]"
+cooldowns:
+  holyLite: # название кита
+    ENCHANTED_GOLDEN_APPLE: 10 # задержка в секундах
+    ENDER_PEARL: 10
