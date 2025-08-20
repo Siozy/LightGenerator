@@ -16,7 +16,7 @@ public class HologramManager {
     private final Hologram hologram;
 
     public HologramManager(Location location) {
-        this.location = location.clone().add(0.5, Config.getDouble("settings.hologram.height"), 0.5);
+        this.location = location.clone().add(0.5, Config.getDouble("settings.hologram.height"), 1);
         this.hologram = DHAPI.createHologram(id, this.location);
     }
 
@@ -25,7 +25,6 @@ public class HologramManager {
             hologram.removePage(0);
             hologram.addPage();
         }
-
         for (String string : Config.getStringList("settings.hologram.lines")) {
             string = string.replace("[leftTime]", String.valueOf(leftTime));
             if (string.startsWith("Material.")) DHAPI.addHologramLine(hologram,

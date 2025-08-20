@@ -1,6 +1,7 @@
 name: LightGenerator
-version: '1.0.12.4'
+version: '1.0.12.8'
 main: siozy.start.lightgenerator.LightGenerator
+author: Siozy
 api-version: '1.16'
 commands:
   lightgenerator:

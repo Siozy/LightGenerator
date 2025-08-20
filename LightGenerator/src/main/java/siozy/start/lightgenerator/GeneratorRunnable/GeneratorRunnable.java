@@ -45,38 +45,45 @@ public class GeneratorRunnable extends LunaTask {
     @SuppressWarnings("all")
     public void start() {
         this.leftTime = this.lifeTime;
+        int timePassed;
+        timePassed = 0;
 
         RunnableManager.load(this);
         while (leftTime > 0 && !block.getType().isAir()) {
             if (!this.isActive()) {
-                System.out.println("[debug] not active");
                 return;
             }
 
             leftTime--;
+            timePassed++;
             this.hologramManager.updateHologram(leftTime);
 
             try {
-                Thread.sleep(this.delay * 1000L);
+                Thread.sleep(1000L);
 
-                Bukkit.getScheduler().runTask(LightGenerator.getInstance(), () -> {
-                    Collection<Player> nearbyPlayers = block.getLocation().getNearbyPlayers(this.radius);
-                    int finalAmount = this.divideJewels ? Math.max(1, (int) LunaMath.round(this.amount / nearbyPlayers.size(), 0)) : this.amount;
-                    for (Player nearbyPlayer : nearbyPlayers) {
-                        SateJewels.getINSTANCE().getSjapi().giveJewels(nearbyPlayer, finalAmount);
-                        Config.sendMessage(nearbyPlayer, "onGetJewels", "amount-%-" + finalAmount, "playersCount-%-" + nearbyPlayers.size(), "leftTime-%-" + leftTime);
-                    }
+                if (timePassed == this.delay) {
+                    timePassed = 0;
+                    Bukkit.getScheduler().runTask(LightGenerator.getInstance(), () -> {
+                        Collection<Player> nearbyPlayers = block.getLocation().getNearbyPlayers(this.radius);
+                        int finalAmount = this.divideJewels ? Math.max(1, (int) LunaMath.round(this.amount / nearbyPlayers.size(), 0)) : this.amount;
+                        for (Player nearbyPlayer : nearbyPlayers) {
+                            SateJewels.getINSTANCE().getSjapi().giveJewels(nearbyPlayer, finalAmount);
+                            Config.sendMessage(nearbyPlayer, "onGetJewels", "amount-%-" + finalAmount, "playersCount-%-" + nearbyPlayers.size(), "leftTime-%-" + leftTime);
+                        }
 
-                });
+                    });
+                }
             } catch (InterruptedException e) {
                 System.out.println("[debug] catch");
                 throw new RuntimeException(e);
             }
         }
-        block.setType(Material.AIR);
-        RunnableManager.unload(this);
-        hologramManager.removeHologram();
-        DataConfig.remove(id);
+        Bukkit.getScheduler().runTask(LightGenerator.getInstance(), () -> {
+            block.setType(Material.AIR);
+            hologramManager.removeHologram();
+            DataConfig.remove(id);
+            RunnableManager.unload(this);
+        });
     }
 
     public Block getBlock() {

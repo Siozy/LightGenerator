@@ -38,3 +38,7 @@ messages:
     - ""
   notEnoughPlayers: "нет игроков"
   onGetJewels: "Вы получили &a[amount] &fЛайтиков от [display]"
+cooldowns:
+  holyLite: # название кита
+    ENCHANTED_GOLDEN_APPLE: 10 # задержка в секундах
+    ENDER_PEARL: 10

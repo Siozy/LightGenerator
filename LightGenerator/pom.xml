@@ -6,7 +6,7 @@
 
   <groupId>siozy.start</groupId>
   <artifactId>LightGenerator</artifactId>
-  <version>1.0.12.4</version>
+  <version>1.0.12.9</version>
   <packaging>jar</packaging>
 
   <name>LightGenerator</name>
